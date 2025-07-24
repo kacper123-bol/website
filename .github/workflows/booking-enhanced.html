@@ -1,0 +1,732 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Enhanced Booking - Aristoteles Apartments</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900">
+    <style>
+        /* Website-matched styling */
+        body {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 2.375;
+            color: #212931;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e252d;
+        }
+
+        .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin: 0 0 1.5rem 0;
+        }
+
+        h4 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 1rem;
+            margin: 0 0 1rem 0;
+        }
+
+        p {
+            text-align: justify;
+            margin: 0 0 2rem 0;
+        }
+
+        .booking-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        /* Form styling to match website */
+        form {
+            margin: 0 0 2rem 0;
+        }
+
+        .fields {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(100% + 3rem);
+            margin: -1.5rem 0 2rem -1.5rem;
+        }
+
+        .field {
+            flex-grow: 0;
+            flex-shrink: 0;
+            padding: 1.5rem 0 0 1.5rem;
+            width: calc(100% - 1.5rem);
+        }
+
+        .field.half {
+            width: calc(50% - 0.75rem);
+        }
+
+        .field.third {
+            width: calc(33.33% - 1rem);
+        }
+
+        .field label {
+            display: block;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #212931;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            appearance: none;
+            background: transparent;
+            border-radius: 0;
+            border: solid 2px #eeeeee;
+            color: #212931;
+            display: block;
+            outline: 0;
+            padding: 0 1rem;
+            text-decoration: none;
+            width: 100%;
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 2.375;
+            box-sizing: border-box;
+        }
+
+        .field input,
+        .field select {
+            height: 3rem;
+        }
+
+        .field textarea {
+            padding: 0.75rem 1rem;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: #18bfef;
+        }
+
+        .field select {
+            background-size: 1.25rem;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 1rem) center;
+            padding-right: 3rem;
+            text-overflow: ellipsis;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23eeeeee' /%3E%3C/svg%3E");
+        }
+
+        .booking-summary {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border: solid 2px #eeeeee;
+        }
+
+        .availability-status {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .availability-status.available {
+            background-color: rgba(24, 191, 239, 0.1);
+            border: solid 2px #18bfef;
+            color: #18bfef;
+        }
+
+        .availability-status.unavailable {
+            background-color: rgba(229, 83, 83, 0.1);
+            border: solid 2px #e55353;
+            color: #e55353;
+        }
+
+        /* Button styling to match website */
+        .actions {
+            display: flex;
+            cursor: default;
+            list-style: none;
+            margin-left: -1rem;
+            padding-left: 0;
+        }
+
+        .actions li {
+            padding: 0 0 0 1rem;
+            vertical-align: middle;
+        }
+
+        .actions input,
+        .actions button {
+            appearance: none;
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+            border: 0;
+            border-radius: 0;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.075em;
+            height: 3rem;
+            line-height: 3rem;
+            padding: 0 2rem;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .actions input.primary,
+        .actions button.primary {
+            background-color: #212931;
+            box-shadow: none;
+            color: #ffffff;
+        }
+
+        .actions input.primary:hover,
+        .actions button.primary:hover {
+            background-color: #18bfef;
+        }
+
+        .actions input.primary:disabled,
+        .actions button.primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .actions input[type="reset"] {
+            background-color: transparent;
+            box-shadow: inset 0 0 0 2px #212931;
+            color: #212931;
+        }
+
+        .actions input[type="reset"]:hover {
+            box-shadow: inset 0 0 0 2px #18bfef;
+            color: #18bfef;
+        }
+
+        .price-display {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #18bfef;
+            margin-top: 1rem;
+        }
+
+        .error {
+            color: #e55353;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .success {
+            background-color: rgba(24, 191, 239, 0.1);
+            border: solid 2px #18bfef;
+            color: #212931;
+            padding: 1.5rem;
+            border-radius: 0;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #18bfef;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 980px) {
+            .field.third {
+                width: calc(50% - 0.75rem);
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .field.half,
+            .field.third {
+                width: calc(100% - 1.5rem);
+            }
+            
+            .actions {
+                flex-direction: column;
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .actions li {
+                flex-grow: 1;
+                flex-shrink: 1;
+                padding: 1rem 0 0 0;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .actions li:first-child {
+                padding-top: 0;
+            }
+            
+            .actions input,
+            .actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Your Stay - Aristoteles Apartments</h1>
+        
+        <div class="booking-section">
+            <h2>Reserve Your Perfect Getaway</h2>
+            <p>Complete the form below to check availability and make your reservation at Aristoteles Apartments in beautiful Greece.</p>
+            
+            <form id="bookingForm" class="booking-form">
+                <!-- Personal Information Section -->
+                <h4>Personal Information</h4>
+                <div class="fields">
+                    <div class="field third">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" id="firstName" required />
+                        <div class="error" id="firstName-error"></div>
+                    </div>
+                    <div class="field third">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName" required />
+                        <div class="error" id="lastName-error"></div>
+                    </div>
+                    <div class="field third">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" required />
+                        <div class="error" id="email-error"></div>
+                    </div>
+                </div>
+
+                <!-- Booking Details Section -->
+                <h4>Booking Details</h4>
+                <div class="fields">
+                    <div class="field half">
+                        <label for="checkin">Check-in Date</label>
+                        <input type="date" name="checkin" id="checkin" required />
+                        <div class="error" id="checkin-error"></div>
+                    </div>
+                    <div class="field half">
+                        <label for="checkout">Check-out Date</label>
+                        <input type="date" name="checkout" id="checkout" required />
+                        <div class="error" id="checkout-error"></div>
+                    </div>
+                    <div class="field half">
+                        <label for="guests">Number of Guests</label>
+                        <select name="guests" id="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                        </select>
+                        <div class="error" id="guests-error"></div>
+                    </div>
+                    <div class="field half">
+                        <label for="houses">Number of Houses</label>
+                        <select name="houses" id="houses">
+                            <option value="1">1 House</option>
+                            <option value="2">2 Houses</option>
+                            <option value="3">3 Houses</option>
+                            <option value="4">4 Houses</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea name="special-requests" id="special-requests" rows="3" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Availability Status -->
+                <div class="availability-status" id="availability-status" style="display: none;"></div>
+                
+                <!-- Booking Summary -->
+                <div class="booking-summary">
+                    <h4>Booking Summary</h4>
+                    <div id="booking-details">Please select your dates to check availability and see pricing.</div>
+                    <div class="price-display" id="price-display" style="display: none;"></div>
+                </div>
+                
+                <ul class="actions">
+                    <li><button type="button" id="check-availability" class="primary">Check Availability</button></li>
+                    <li><button type="submit" id="book-now" class="primary" disabled>Book Now</button></li>
+                    <li><input type="reset" value="Clear Form" /></li>
+                </ul>
+            </form>
+            
+            <div class="success" id="success-message">
+                <strong>Reservation Created Successfully!</strong><br>
+                <span id="success-details"></span><br>
+                We'll contact you within 24 hours to confirm your reservation.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').setAttribute('min', today);
+        document.getElementById('checkout').setAttribute('min', today);
+
+        // Price per house per night (in EUR)
+        const PRICE_PER_HOUSE_PER_NIGHT = 80;
+
+        // Form elements
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+        const guestsSelect = document.getElementById('guests');
+        const housesSelect = document.getElementById('houses');
+        const specialRequests = document.getElementById('special-requests');
+        const bookingDetails = document.getElementById('booking-details');
+        const priceDisplay = document.getElementById('price-display');
+        const availabilityStatus = document.getElementById('availability-status');
+        const checkAvailabilityBtn = document.getElementById('check-availability');
+        const bookNowBtn = document.getElementById('book-now');
+        const form = document.getElementById('bookingForm');
+        const successMessage = document.getElementById('success-message');
+        const successDetails = document.getElementById('success-details');
+
+        let isAvailable = false;
+        let currentTotalPrice = 0;
+
+        // Calculate and display booking details
+        function updateBookingDetails() {
+            const checkin = new Date(checkinInput.value);
+            const checkout = new Date(checkoutInput.value);
+            const guests = parseInt(guestsSelect.value);
+            const houses = parseInt(housesSelect.value);
+
+            // Clear previous errors and status
+            clearErrors();
+            availabilityStatus.style.display = 'none';
+            bookNowBtn.disabled = true;
+            isAvailable = false;
+
+            // Validate guest capacity (max 5 guests per house)
+            const maxGuestsAllowed = houses * 5;
+            if (guests > maxGuestsAllowed) {
+                document.getElementById('guests-error').textContent = `Maximum ${maxGuestsAllowed} guests allowed for ${houses} house${houses > 1 ? 's' : ''} (5 guests per house)`;
+                priceDisplay.style.display = 'none';
+                bookingDetails.innerHTML = 'Please adjust the number of guests or houses.';
+                return;
+            }
+
+            if (checkinInput.value && checkoutInput.value) {
+                if (checkout <= checkin) {
+                    document.getElementById('checkout-error').textContent = 'Check-out date must be after check-in date';
+                    priceDisplay.style.display = 'none';
+                    bookingDetails.innerHTML = 'Please select valid dates.';
+                    return;
+                }
+
+                const timeDiff = checkout.getTime() - checkin.getTime();
+                const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                const totalPrice = nights * houses * PRICE_PER_HOUSE_PER_NIGHT;
+                currentTotalPrice = totalPrice;
+
+                const checkinFormatted = checkin.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                const checkoutFormatted = checkout.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                bookingDetails.innerHTML = `
+                    <strong>Check-in:</strong> ${checkinFormatted}<br>
+                    <strong>Check-out:</strong> ${checkoutFormatted}<br>
+                    <strong>Duration:</strong> ${nights} night${nights > 1 ? 's' : ''}<br>
+                    <strong>Guests:</strong> ${guests} ${guests > 1 ? 'guests' : 'guest'}<br>
+                    <strong>Houses:</strong> ${houses} house${houses > 1 ? 's' : ''}<br>
+                    <strong>Capacity:</strong> Up to ${maxGuestsAllowed} guests total
+                `;
+
+                priceDisplay.innerHTML = `Total: €${totalPrice} (€${PRICE_PER_HOUSE_PER_NIGHT}/house/night)`;
+                priceDisplay.style.display = 'block';
+            } else {
+                bookingDetails.innerHTML = 'Please select your dates to check availability and see pricing.';
+                priceDisplay.style.display = 'none';
+            }
+        }
+
+        // Clear all error messages
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(element => element.textContent = '');
+        }
+
+        // Check availability with the server
+        async function checkAvailability() {
+            if (!checkinInput.value || !checkoutInput.value) {
+                alert('Please select both check-in and check-out dates.');
+                return;
+            }
+
+            const checkin = new Date(checkinInput.value);
+            const checkout = new Date(checkoutInput.value);
+            const guests = parseInt(guestsSelect.value);
+            const houses = parseInt(housesSelect.value);
+            
+            if (checkout <= checkin) {
+                document.getElementById('checkout-error').textContent = 'Check-out date must be after check-in date';
+                return;
+            }
+
+            // Validate guest capacity before checking availability
+            const maxGuestsAllowed = houses * 5;
+            if (guests > maxGuestsAllowed) {
+                document.getElementById('guests-error').textContent = `Maximum ${maxGuestsAllowed} guests allowed for ${houses} house${houses > 1 ? 's' : ''} (5 guests per house)`;
+                return;
+            }
+
+            // Show loading state
+            checkAvailabilityBtn.innerHTML = 'Checking... <div class="loading"></div>';
+            checkAvailabilityBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/check-availability', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        checkinDate: checkinInput.value,
+                        checkoutDate: checkoutInput.value,
+                        houses: parseInt(housesSelect.value),
+                        guests: guests
+                    })
+                });
+
+                const data = await response.json();
+                
+                availabilityStatus.style.display = 'block';
+                if (data.available) {
+                    availabilityStatus.className = 'availability-status available';
+                    availabilityStatus.innerHTML = `✓ ${data.message}`;
+                    bookNowBtn.disabled = false;
+                    isAvailable = true;
+                } else {
+                    availabilityStatus.className = 'availability-status unavailable';
+                    if (data.availableHouses === 0) {
+                        availabilityStatus.innerHTML = `✗ No houses available for the specified dates. All 4 houses are booked.`;
+                    } else {
+                        availabilityStatus.innerHTML = `✗ ${data.message || data.error}`;
+                    }
+                    bookNowBtn.disabled = true;
+                    isAvailable = false;
+                }
+            } catch (error) {
+                console.error('Error checking availability:', error);
+                availabilityStatus.style.display = 'block';
+                availabilityStatus.className = 'availability-status unavailable';
+                availabilityStatus.innerHTML = '✗ Error checking availability. Please try again.';
+                bookNowBtn.disabled = true;
+                isAvailable = false;
+            } finally {
+                checkAvailabilityBtn.innerHTML = 'Check Availability';
+                checkAvailabilityBtn.disabled = false;
+            }
+        }
+
+        // Create reservation
+        async function createReservation() {
+            if (!isAvailable) {
+                alert('Please check availability first.');
+                return;
+            }
+
+            // Validate required fields
+            if (!firstName.value.trim() || !lastName.value.trim() || !email.value.trim()) {
+                alert('Please fill in all personal information fields.');
+                return;
+            }
+
+            // Validate guest capacity one more time before submission
+            const guests = parseInt(guestsSelect.value);
+            const houses = parseInt(housesSelect.value);
+            const maxGuestsAllowed = houses * 5;
+            if (guests > maxGuestsAllowed) {
+                alert(`Maximum ${maxGuestsAllowed} guests allowed for ${houses} house${houses > 1 ? 's' : ''} (5 guests per house)`);
+                return;
+            }
+
+            // Show loading state
+            bookNowBtn.innerHTML = 'Creating Reservation... <div class="loading"></div>';
+            bookNowBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/create-reservation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        firstName: firstName.value.trim(),
+                        lastName: lastName.value.trim(),
+                        email: email.value.trim(),
+                        checkinDate: checkinInput.value,
+                        checkoutDate: checkoutInput.value,
+                        guests: guests,
+                        houses: houses,
+                        specialRequests: specialRequests.value.trim(),
+                        totalPrice: currentTotalPrice
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    successDetails.innerHTML = `Reservation ID: ${data.reservationId}<br>Total Amount: €${currentTotalPrice}`;
+                    successMessage.style.display = 'block';
+                    form.style.display = 'none';
+                } else {
+                    if (data.error.includes('available')) {
+                        alert(`${data.error}. Please check availability again.`);
+                        availabilityStatus.style.display = 'none';
+                        isAvailable = false;
+                    } else {
+                        alert(`Error creating reservation: ${data.error}`);
+                    }
+                    bookNowBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error creating reservation:', error);
+                alert('Error creating reservation. Please try again.');
+                bookNowBtn.disabled = false;
+            } finally {
+                bookNowBtn.innerHTML = 'Book Now';
+                if (!successMessage.style.display || successMessage.style.display === 'none') {
+                    bookNowBtn.disabled = !isAvailable;
+                }
+            }
+        }
+
+        // Update checkout minimum date when checkin changes
+        checkinInput.addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const minCheckout = checkinDate.toISOString().split('T')[0];
+            checkoutInput.setAttribute('min', minCheckout);
+            updateBookingDetails();
+            
+            // Reset availability status when dates change
+            availabilityStatus.style.display = 'none';
+            bookNowBtn.disabled = true;
+            isAvailable = false;
+        });
+
+        // Event listeners
+        checkoutInput.addEventListener('change', () => {
+            updateBookingDetails();
+            availabilityStatus.style.display = 'none';
+            bookNowBtn.disabled = true;
+            isAvailable = false;
+        });
+        
+        guestsSelect.addEventListener('change', updateBookingDetails);
+        housesSelect.addEventListener('change', () => {
+            updateBookingDetails();
+            availabilityStatus.style.display = 'none';
+            bookNowBtn.disabled = true;
+            isAvailable = false;
+        });
+
+        // Button event listeners
+        checkAvailabilityBtn.addEventListener('click', checkAvailability);
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            createReservation();
+        });
+
+        // Reset button functionality
+        form.addEventListener('reset', function() {
+            setTimeout(() => {
+                updateBookingDetails();
+                availabilityStatus.style.display = 'none';
+                bookNowBtn.disabled = true;
+                isAvailable = false;
+                clearErrors();
+            }, 100);
+        });
+
+        // Initialize
+        updateBookingDetails();
+    </script>
+</body>
+</html>

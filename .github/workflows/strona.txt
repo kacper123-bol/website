@@ -1,0 +1,27 @@
+Uklad strony:
+
+- Home Page
+- Offer
+- Things to do (Discover)
+- Gallery
+- Contact
+- Seperate page for pilgrims?, if so include the service of booking the boat trip?
+
+Principles:
+- Home Page with information regarding the houses and the surrounding area
+- Offer page with broad informations regarding the apartments and booking system
+- Establish the database for reservation and construct it's system
+- Connect the reservation system to an established company email
+- Discover page with a complete guide and the option to filter diffrent things to do based on what the customer wants(Maybe make a little questionare)
+- Gallery page with high quality photos of the estates
+- Contact page with contact information
+-
+Google offers 350 euros of free ads when creating a company email
+
+
+Discover Page ideas:
+
+1.search and filter page with different categories
+2.questionare which would give a certain amount of activities as well as the search filter for all the activities
+
+

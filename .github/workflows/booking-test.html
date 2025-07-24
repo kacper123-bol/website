@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Booking Test - Aristoteles Apartments</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900">
+    <style>
+        /* Website-matched styling */
+        body {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 2.375;
+            color: #212931;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e252d;
+        }
+
+        .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin: 0 0 1.5rem 0;
+        }
+
+        h4 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+            color: #212931;
+            font-size: 1rem;
+            margin: 0 0 1rem 0;
+        }
+
+        p {
+            text-align: justify;
+            margin: 0 0 2rem 0;
+        }
+
+        .booking-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        /* Form styling to match website */
+        form {
+            margin: 0 0 2rem 0;
+        }
+
+        .fields {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(100% + 3rem);
+            margin: -1.5rem 0 2rem -1.5rem;
+        }
+
+        .field {
+            flex-grow: 0;
+            flex-shrink: 0;
+            padding: 1.5rem 0 0 1.5rem;
+            width: calc(100% - 1.5rem);
+        }
+
+        .field.half {
+            width: calc(50% - 0.75rem);
+        }
+
+        .field label {
+            display: block;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            letter-spacing: 0.075em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #212931;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            appearance: none;
+            background: transparent;
+            border-radius: 0;
+            border: solid 2px #eeeeee;
+            color: #212931;
+            display: block;
+            outline: 0;
+            padding: 0 1rem;
+            text-decoration: none;
+            width: 100%;
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 2.375;
+            box-sizing: border-box;
+        }
+
+        .field input,
+        .field select {
+            height: 3rem;
+        }
+
+        .field textarea {
+            padding: 0.75rem 1rem;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: #18bfef;
+        }
+
+        .field select {
+            background-size: 1.25rem;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 1rem) center;
+            padding-right: 3rem;
+            text-overflow: ellipsis;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23eeeeee' /%3E%3C/svg%3E");
+        }
+
+        .booking-summary {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border: solid 2px #eeeeee;
+        }
+
+        /* Button styling to match website */
+        .actions {
+            display: flex;
+            cursor: default;
+            list-style: none;
+            margin-left: -1rem;
+            padding-left: 0;
+        }
+
+        .actions li {
+            padding: 0 0 0 1rem;
+            vertical-align: middle;
+        }
+
+        .actions input {
+            appearance: none;
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+            border: 0;
+            border-radius: 0;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.075em;
+            height: 3rem;
+            line-height: 3rem;
+            padding: 0 2rem;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .actions input.primary {
+            background-color: #212931;
+            box-shadow: none;
+            color: #ffffff;
+        }
+
+        .actions input.primary:hover {
+            background-color: #18bfef;
+        }
+
+        .actions input[type="reset"] {
+            background-color: transparent;
+            box-shadow: inset 0 0 0 2px #212931;
+            color: #212931;
+        }
+
+        .actions input[type="reset"]:hover {
+            box-shadow: inset 0 0 0 2px #18bfef;
+            color: #18bfef;
+        }
+
+        .price-display {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #18bfef;
+            margin-top: 1rem;
+        }
+
+        .error {
+            color: #e55353;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .success {
+            background-color: rgba(24, 191, 239, 0.1);
+            border: solid 2px #18bfef;
+            color: #212931;
+            padding: 1.5rem;
+            border-radius: 0;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 1680px) {
+            body {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            body {
+                font-size: 0.6875rem;
+            }
+        }
+
+        @media screen and (max-width: 980px) {
+            .container {
+                padding: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .actions input {
+                font-size: 0.9rem;
+                height: 3.25rem;
+                line-height: 3.25rem;
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .field.half {
+                width: calc(100% - 1.5rem);
+            }
+            
+            .actions {
+                flex-direction: column;
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .actions li {
+                flex-grow: 1;
+                flex-shrink: 1;
+                padding: 1rem 0 0 0;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .actions li:first-child {
+                padding-top: 0;
+            }
+            
+            .actions input {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .fields {
+                width: calc(100% + 3rem);
+                margin: -1.5rem 0 2rem -1.5rem;
+            }
+            
+            .field {
+                padding: 1.5rem 0 0 1.5rem;
+                width: calc(100% - 1.5rem);
+            }
+            
+            .field.half {
+                width: calc(100% - 1.5rem);
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            body {
+                font-size: 0.625rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Booking System - Aristoteles Apartments</h1>
+        
+        <div class="booking-section">
+            <h2>Book Your Stay</h2>
+            <p>Select your dates and reserve your perfect getaway in Aristoteles, Greece.</p>
+            
+            <form id="bookingForm" class="booking-form">
+                <div class="fields">
+                    <div class="field half">
+                        <label for="checkin">Check-in Date</label>
+                        <input type="date" name="checkin" id="checkin" required />
+                        <div class="error" id="checkin-error"></div>
+                    </div>
+                    <div class="field half">
+                        <label for="checkout">Check-out Date</label>
+                        <input type="date" name="checkout" id="checkout" required />
+                        <div class="error" id="checkout-error"></div>
+                    </div>
+                    <div class="field half">
+                        <label for="guests">Number of Guests</label>
+                        <select name="guests" id="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="field half">
+                        <label for="houses">Number of Houses</label>
+                        <select name="houses" id="houses">
+                            <option value="1">1 House</option>
+                            <option value="2">2 Houses</option>
+                            <option value="3">3 Houses</option>
+                            <option value="4">4 Houses</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea name="special-requests" id="special-requests" rows="3" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="booking-summary">
+                    <h4>Booking Summary</h4>
+                    <div id="booking-details">Please select your dates to see pricing and availability.</div>
+                    <div class="price-display" id="price-display" style="display: none;"></div>
+                </div>
+                
+                <ul class="actions">
+                    <li><input type="submit" value="Check Availability & Book" class="primary" /></li>
+                    <li><input type="reset" value="Clear Dates" /></li>
+                </ul>
+            </form>
+            
+            <div class="success" id="success-message">
+                <strong>Booking Submitted Successfully!</strong><br>
+                We'll contact you within 24 hours to confirm your reservation.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').setAttribute('min', today);
+        document.getElementById('checkout').setAttribute('min', today);
+
+        // Price per house per night (in EUR)
+        const PRICE_PER_HOUSE_PER_NIGHT = 80;
+
+        // Form elements
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+        const guestsSelect = document.getElementById('guests');
+        const housesSelect = document.getElementById('houses');
+        const bookingDetails = document.getElementById('booking-details');
+        const priceDisplay = document.getElementById('price-display');
+        const form = document.getElementById('bookingForm');
+        const successMessage = document.getElementById('success-message');
+
+        // Calculate and display booking details
+        function updateBookingDetails() {
+            const checkin = new Date(checkinInput.value);
+            const checkout = new Date(checkoutInput.value);
+            const guests = parseInt(guestsSelect.value);
+            const houses = parseInt(housesSelect.value);
+
+            // Clear previous errors
+            document.getElementById('checkin-error').textContent = '';
+            document.getElementById('checkout-error').textContent = '';
+
+            if (checkinInput.value && checkoutInput.value) {
+                if (checkout <= checkin) {
+                    document.getElementById('checkout-error').textContent = 'Check-out date must be after check-in date';
+                    priceDisplay.style.display = 'none';
+                    bookingDetails.innerHTML = 'Please select valid dates.';
+                    return;
+                }
+
+                const timeDiff = checkout.getTime() - checkin.getTime();
+                const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                const totalPrice = nights * houses * PRICE_PER_HOUSE_PER_NIGHT;
+
+                const checkinFormatted = checkin.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                const checkoutFormatted = checkout.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+
+                bookingDetails.innerHTML = `
+                    <strong>Check-in:</strong> ${checkinFormatted}<br>
+                    <strong>Check-out:</strong> ${checkoutFormatted}<br>
+                    <strong>Duration:</strong> ${nights} night${nights > 1 ? 's' : ''}<br>
+                    <strong>Guests:</strong> ${guests} ${guests > 1 ? 'guests' : 'guest'}<br>
+                    <strong>Houses:</strong> ${houses} house${houses > 1 ? 's' : ''}
+                `;
+
+                priceDisplay.innerHTML = `Total: €${totalPrice} (€${PRICE_PER_HOUSE_PER_NIGHT}/house/night)`;
+                priceDisplay.style.display = 'block';
+            } else {
+                bookingDetails.innerHTML = 'Please select your dates to see pricing and availability.';
+                priceDisplay.style.display = 'none';
+            }
+        }
+
+        // Update checkout minimum date when checkin changes
+        checkinInput.addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const minCheckout = checkinDate.toISOString().split('T')[0];
+            checkoutInput.setAttribute('min', minCheckout);
+            updateBookingDetails();
+        });
+
+        // Event listeners
+        checkoutInput.addEventListener('change', updateBookingDetails);
+        guestsSelect.addEventListener('change', updateBookingDetails);
+        housesSelect.addEventListener('change', updateBookingDetails);
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!checkinInput.value || !checkoutInput.value) {
+                alert('Please select both check-in and check-out dates.');
+                return;
+            }
+
+            const checkin = new Date(checkinInput.value);
+            const checkout = new Date(checkoutInput.value);
+            
+            if (checkout <= checkin) {
+                alert('Check-out date must be after check-in date.');
+                return;
+            }
+
+            // Simulate form submission
+            console.log('Booking form submitted:', {
+                checkin: checkinInput.value,
+                checkout: checkoutInput.value,
+                guests: guestsSelect.value,
+                houses: housesSelect.value,
+                specialRequests: document.getElementById('special-requests').value
+            });
+
+            // Show success message
+            successMessage.style.display = 'block';
+            form.style.display = 'none';
+
+            // Reset after 5 seconds for testing
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                form.style.display = 'block';
+                form.reset();
+                updateBookingDetails();
+            }, 5000);
+        });
+
+        // Reset button functionality
+        form.addEventListener('reset', function() {
+            setTimeout(() => {
+                updateBookingDetails();
+            }, 100);
+        });
+    </script>
+</body>
+</html>

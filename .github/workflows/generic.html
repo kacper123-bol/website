@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Activities - Aristoteles Apartments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Aristotelis</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home Page</a></li>
+							<li><a href="elements.html">Offer</a></li>
+							<li class="active"><a href="generic.html">Activities</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="mount-athos.html">Mount Athos</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Activities Page -->
+							<section class="post">
+								<header class="major">
+									<span class="date">Discover Aristoteles</span>
+									<h1>Activities & Attractions<br />
+									Near Our Houses</h1>
+									<p>Explore the best things to do in beautiful Aristoteles, Greece. From ancient sites to stunning beaches, adventure awaits just minutes from your accommodation.</p>
+								</header>
+
+								<!-- Search and Filter Section -->
+								<div class="search-section" style="background-color: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+									<h2>Find Your Perfect Activity</h2>
+									
+									<!-- Search Bar -->
+									<form id="activitySearchForm" class="activity-search-form">
+										<div class="row gtr-uniform">
+											<div class="col-8 col-12-medium">
+												<input type="text" name="search" id="activity-search" placeholder="Search activities, attractions, or keywords..." />
+											</div>
+											<div class="col-4 col-12-medium">
+												<input type="submit" value="Search" class="primary fit" />
+											</div>
+										</div>
+									</form>
+
+									<!-- Filters -->
+									<div class="filters-section" style="margin-top: 2rem;">
+										<h4>Filter by Category</h4>
+										<div class="row gtr-uniform">
+											<div class="col-3 col-6-medium col-12-small">
+												<select name="category" id="category-filter">
+													<option value="">All Categories</option>
+													<option value="beaches">Beaches & Water</option>
+													<option value="historical">Historical Sites</option>
+													<option value="nature">Nature & Hiking</option>
+													<option value="culture">Culture & Museums</option>
+													<option value="adventure">Adventure Sports</option>
+													<option value="dining">Dining & Nightlife</option>
+													<option value="shopping">Shopping</option>
+													<option value="family">Family Friendly</option>
+												</select>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<select name="distance" id="distance-filter">
+													<option value="">Any Distance</option>
+													<option value="walking">Walking Distance (0-2km)</option>
+													<option value="short">Short Drive (2-10km)</option>
+													<option value="medium">Medium Drive (10-30km)</option>
+													<option value="long">Day Trip (30km+)</option>
+												</select>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<select name="duration" id="duration-filter">
+													<option value="">Any Duration</option>
+													<option value="1-2">1-2 Hours</option>
+													<option value="3-4">3-4 Hours</option>
+													<option value="half-day">Half Day</option>
+													<option value="full-day">Full Day</option>
+													<option value="multi-day">Multi Day</option>
+												</select>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<select name="price" id="price-filter">
+													<option value="">Any Price</option>
+													<option value="free">Free</option>
+													<option value="budget">Budget (€0-20)</option>
+													<option value="moderate">Moderate (€20-50)</option>
+													<option value="premium">Premium (€50+)</option>
+												</select>
+											</div>
+										</div>
+
+										<!-- Additional Filters -->
+										<div class="row gtr-uniform" style="margin-top: 1rem;">
+											<div class="col-12">
+												<h5>Additional Options</h5>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<input type="checkbox" id="accessible" name="accessible">
+												<label for="accessible">Wheelchair Accessible</label>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<input type="checkbox" id="kids-friendly" name="kids-friendly">
+												<label for="kids-friendly">Kid Friendly</label>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<input type="checkbox" id="pets-allowed" name="pets-allowed">
+												<label for="pets-allowed">Pets Allowed</label>
+											</div>
+											<div class="col-3 col-6-medium col-12-small">
+												<input type="checkbox" id="english-speaking" name="english-speaking">
+												<label for="english-speaking">English Speaking</label>
+											</div>
+										</div>
+
+										<!-- Filter Actions -->
+										<div class="row gtr-uniform" style="margin-top: 1.5rem;">
+											<div class="col-12">
+												<ul class="actions">
+													<li><button type="button" id="apply-filters" class="primary">Apply Filters</button></li>
+													<li><button type="button" id="clear-filters">Clear All</button></li>
+													<li><span id="results-count" style="line-height: 3rem; margin-left: 1rem; color: #666;">Showing all activities</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Sort Options -->
+								<div class="sort-section" style="margin-bottom: 2rem; padding: 1rem; background-color: #fff; border: solid 2px #eeeeee;">
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h4 style="margin: 0; line-height: 2rem;">Activities & Attractions</h4>
+										</div>
+										<div class="col-6 col-12-small" style="text-align: right;">
+											<select name="sort" id="sort-activities" style="width: auto; display: inline-block;">
+												<option value="relevance">Sort by Relevance</option>
+												<option value="distance">Sort by Distance</option>
+												<option value="rating">Sort by Rating</option>
+												<option value="price-low">Price: Low to High</option>
+												<option value="price-high">Price: High to Low</option>
+												<option value="duration">Sort by Duration</option>
+												<option value="alphabetical">Alphabetical</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Activities Results Container -->
+								<div id="activities-container">
+									<!-- Activities will be loaded here dynamically -->
+									<div class="activities-placeholder" style="text-align: center; padding: 3rem; background-color: #f8f9fa; border-radius: 8px;">
+										<h3>Ready for Activities!</h3>
+										<p>The search and filter system is set up and ready. Activities will appear here once you add them to the system.</p>
+										<p><em>Use the search bar and filters above to find exactly what you're looking for.</em></p>
+									</div>
+								</div>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Nea Roda</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">+48 123 456 789</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">aristotelisapartments@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Aristoteles 2025</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
